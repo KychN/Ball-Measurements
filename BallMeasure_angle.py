@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw
-from math import pi, sin, cos, sqrt
+from math import pi, sqrt
 from statistics import pstdev, mean
 from time import perf_counter
 
@@ -12,9 +12,6 @@ image = Image.open(PATH)
 SIZE = image.size
 
 im_rgb = image.convert("RGB")
-
-##image_matrix = [] #xy matrix, will contain bools. True means ball, False means no ball. Use this when examining a specific point.
-##ball_points = [] #List of all the points on the ball. Use this when you want to get all the points on the ball.
 
 #HAS TO BE MODIFIED BEFORE USING REAL IMAGES
 def get_ball(im,width,height):
