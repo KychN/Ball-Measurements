@@ -52,11 +52,20 @@ def is_edge(point,matrix):
     
     #Here we check a square of 9 pixels surrouning a point. If one or more of them is NOT ball then our point is an edge point.
     for x in range(3):
-        for y in range(3):
-            point_to_check = [point[0]-1+x , point[1]-1+y]
-            if not matrix[point_to_check[0]][point_to_check[1]]:
-                is_edge = True
-                return is_edge
+        x_to_check = point[0]-1+x
+        if x_to_check > 0 and x_to_check < SIZE[0]: #We maake sure we are inside the frame
+            for y in range(3):
+                y_to_check = point[1]-1+y
+                if y_to_check > 0 and y_to_check < SIZE[1]: #We maake sure we are inside the frame
+                    if not matrix[x_to_check][y_to_check]:
+                        is_edge = True
+                        return is_edge
+                else:
+                    is_edge = True
+                    return is_edge
+        else:
+            is_edge = True
+            return is_edge
     
 
 def find_raw_edge(ball_points, matrix):
